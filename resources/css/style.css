@@ -1,0 +1,302 @@
+@charset "UTF-8";
+* { box-sizing: border-box; }
+body{
+  background: #EDF0F1;
+  padding: 80px 0 0 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+
+body, input, button{
+  font-family: 'Roboto', sans-serif;
+}
+
+header{
+  width: 100%;
+  height: 80px;
+
+  position: fixed;
+  padding: 15px;
+
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background: #25B99A;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(44,62,80,0.15);
+
+/*fixed fucked up padding issue*/
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+
+header input{
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-indent: 19px;
+  float: left;
+  background: rgba(255,255,255,0.2);
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 0px;
+  box-shadow:none;
+  outline:none;
+  padding: 0 60px 0 0;
+
+  /*fixed fucked up padding issue*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+-webkit-appearance:none;
+-moz-appearance:none;
+-moz-appearance:none;
+-ms-appearance:none;
+-o-appearance:none;
+appearance:none;
+}
+
+
+/*old way of fixing browser compatibility with place holder property*/
+header input::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.75);
+}
+header input::-moz-input-placeholder {
+  color: rgba(255,255,255,0.75);
+}
+header input:-moz-input-placeholder {
+  color: rgba(255,255,255,0.75);
+}
+header input:-ms-input-placeholder {
+  color: rgba(255,255,255,0.75);
+}
+
+header button{
+  width: 50px;
+  height: 50px;
+  /*will sit at the top of everithing, the new way is called flex box. position is associated with positioning like top or bototm*/
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 2;
+  border-radius: 25px;
+  background: #fff;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  -moz-appearance:none;
+  -ms-appearance:none;
+  -o-appearance:none;
+  appearance:none;
+
+
+}
+
+header button svg{
+  width: 16px;
+  height: 16px;
+  /* aparentli unnececery part of the code for my browser
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -8px 0 0 -8px;*/
+
+}
+
+
+header button svg .fill {
+  fill: #25B99A;
+}
+
+div.container{
+  width: 100%;
+  float: left;
+  padding: 15px;
+
+}
+
+ul.todo{
+  width: 100%;
+  list-style-position: outside;
+  float: left;
+  list-style-type: none;
+  padding: 0;
+  margin: 0px;
+
+
+}
+ul.todo li{
+  width: 100%;
+  float: left;
+  min-height: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444545;
+  line-height: 22px;
+
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(44,62,80,0.1);
+  margin: 0 0 10px 0;
+  position: relative;
+  padding: 14px 100px 14px 14px;
+
+}
+
+/*last list item will have no margine on the bottom*/
+ul.todo li:last-of-type {
+  margin: 0px;
+}
+
+ul.todo li div.buttons {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+ul.todo li div.buttons button {
+  width: 50px;
+  height: 50px;
+  float: left;
+  background: none;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  padding: 0px;
+  position: relative;
+  cursor: pointer;
+
+
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  -moz-appearance:none;
+  -ms-appearance:none;
+  -o-appearance:none;
+  appearance:none;
+}
+
+
+
+.nofill{
+  fill: none;
+}
+
+/*that will set a separator*/
+ul.todo li div.buttons button:last-of-type::before {
+content: '';
+width: 1px;
+height: 30px;
+position: absolute;
+top: 10px;
+left:0px;
+background: #EDF0F1;
+}
+
+ul.todo li div.buttons button svg {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -11px 0 0 -11px;
+}
+
+
+
+ul.todo li div.buttons button svg .fill{
+  -webkit-transition: fill 0.2s ease;
+  -o-transition: fill 0.2s ease;
+  -moz-trnasition: fill 0.2s ease;
+transition: fill 0.2s ease;
+}
+
+ul.todo li div.buttons button.remove svg .fill {
+fill: #C0CECB;
+}
+ul.todo li div.buttons button.remove:hover svg .fill {
+  fill: #E85656;
+}
+
+ul.todo li div.buttons button.complete svg .fill {
+fill: #25B99A;
+}
+
+ul.todo li .buttons button.complete svg {
+  border-radius: 11px;
+  border: 1.5px solid #25b99a;
+
+  -webkit-transistion: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -ms-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+
+ul.todo#complete li .buttons button.complete svg{
+  background: #25b99a;
+  border: 0px;
+}
+
+ul.todo#complete li .buttons button.complete svg .fill{
+  fill: #fff;
+}
+
+ul.todo:not(#complete) li .buttons button.complete:hover svg {
+  background:rgba(37,185,154,0.75);
+}
+ul.todo:not(#complete) li .buttons button.complete:hover svg .fill {
+  fill: #fff;
+}
+
+ul.todo#complete{
+  position: relative;
+  padding: 60px 0 0 0;
+
+}
+
+ul.todo#complete:before {
+  content:'';
+  width: 150px;
+  height: 1px;
+  background: #d8e5e0;
+  position:absolute;
+  top:30px;
+  left:50%;
+  margin: 0 0 0 -75px;
+}
+
+ul.todo#todo:empty:after {
+  content: 'You have nothing to-do!';
+  margin: 15px 0 0 0;
+}
+
+
+ul.todo#complete:empty:after {
+  content: 'You have yet to complete any task.';
+}
+
+ul.todo#todo:after,
+ul.todo#complete:after{
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+}
